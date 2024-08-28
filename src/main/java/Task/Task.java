@@ -1,3 +1,9 @@
+package Task;
+
+import Task.TaskType.Deadline;
+import Task.TaskType.TaskType;
+import Task.TaskType.Todo;
+import Task.TaskType.Event;
 import exceptions.InvalidTaskException;
 import exceptions.NoTaskDescriptionException;
 
@@ -11,12 +17,10 @@ public class Task {
     protected static HashSet<String> taskNames = new HashSet<>(Arrays.asList("todo", "deadline", "event"));
 
     public static Task createTask(String description)
-            throws InvalidTaskException, NoTaskDescriptionException {
+            throws NoTaskDescriptionException {
         String strippedDescription = description.trim().toLowerCase();
         String[] words = description.split(" ");
-        if (!taskNames.contains(words[0])) {
-            throw new InvalidTaskException();
-        }
+
         if (words.length == 1) {
             throw new NoTaskDescriptionException();
         }

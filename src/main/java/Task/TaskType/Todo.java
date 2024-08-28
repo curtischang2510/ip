@@ -1,3 +1,7 @@
+package Task.TaskType;
+
+import Task.Task;
+
 public class Todo extends Task {
 
     public Todo(String description) {
